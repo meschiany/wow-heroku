@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+companies = Company.create([{name:'TSC',owner:'עופרה שטראוס'},
+							{name:'יטבתה',owner:'עופרה שטראוס'},
+							{name:'עלית',owner:'עופרה שטראוס'},
+							{name:'שטראוס',owner:'עופרה שטראוס'},
+							{name:'יד מרדכי',owner:'עופרה שטראוס'},
+							{name:'קואקר אוטס',owner:'עופרה שטראוס'}])

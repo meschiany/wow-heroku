@@ -15,6 +15,7 @@ Myapp::Application.routes.draw do
   resources :main do
     collection do
       get 'show'
+      get 'company'
     end
   end
 

@@ -1,11 +1,21 @@
 class MainController < ApplicationController
   
-	def index
-		render :text => "Chill out", :status => :ok, :content_type => 'text/html'
-	end
+	# def index
+	# 	render :text => "Chill out", :status => :ok, :content_type => 'text/html'
+	# end
 
-	def show
-		render :text => "Chill out #{params[:id]} :)", :status => :ok, :content_type => 'text/html'		
+	# def show
+	# 	render :text => "Chill out #{params[:id]} :)", :status => :ok, :content_type => 'text/html'		
+	# end
+
+	def company
+		if(params.has_key?(:name))
+			company = Company.where(name: params[:name]).first
+			render :text => "Company #{params[:name]} is owned by: " + company.owner + " and the owner is: ", :status => :ok, :content_type => 'text/html'
+		elsif(params.has_key?(:id))
+			company = Company.find(params[:id])
+			render :text => "Company in id #{params[:id]} is: " + company.name + " and the owner is: " + company.owner , :status => :ok, :content_type => 'text/html'
+		end
 	end
 
 
