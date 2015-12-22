@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  
+  require 'json'
 	# def index
 	# 	render :text => "Chill out", :status => :ok, :content_type => 'text/html'
 	# end
@@ -20,25 +20,54 @@ class MainController < ApplicationController
 
 
 	def create_ref
-		refrigirator = Refrigirator.create(name: params[:name], address: params[:address])
-		ref_id = refrigirator[id]
+		refrigerator = Refrigerator.create(name: params[:name], address: params[:address])
+		ref_id = refrigerator.id
 		link_items(ref_id)
 	end
 
 	def link_items(ref_id)
-		params[:item_id].each { |item_id| 
-			RefItem.create(refrigirator_id: ref_id, item_id: item_id)
-		}
+		params[:item_id].each do |item_id| 
+			RefItem.create(refrigerator_id: ref_id, item_id: item_id)
+		end
 	end
 
 	def get_ref
-		@ref = Refrigirator.find_by(id: params[:id])
+		@ref = Refrigerator.find(params[:id])
 	end
 
 	def get_item_by_id
-		@item = Item.find_by(id: params[:id])
+		@item = Item.find(params[:id])
 	end
 
+	def create_data_for_sunburst_by_ref_id
+		txt=""
+		items = RefItem.where(refrigerator_id: params[:id])
+		items.each.with_index(1) do |item,i|
+			txt = txt + "#{i}, 1, #{item.item.company.owner}, 0"
+			txt = txt + "#{i}, 2, #{item.item.company.name}, 0"
+			txt = txt + "#{i}, 3, #{item.item.name}, #{item.item.price}"
+		end
+		render :text => txt , :status => :ok, :content_type => 'text/html'
+	end
+
+	def create_items_json_by_ref_id
+		item_ids = RefItem.find(:all, 1)
+		item_ids.each do |i|
+			myarr.push(i.item_id)
+		end
+		items = Item.find(myarr)
+		jsonobj = {:respons => "true"}
+		jsonobj = {:data => []}
+		items.each do |item|
+			jsonobj[:data].push({:name => item.name , :price => item.price, :company_name => item.company.name})
+		end
+		jsonobj.to_json
+	end
+
+	def search_items
+		@items = Item.where("name like ?", "%#{params[:word]}%")
+		render:json => @items, :status => :ok, :content_type => 'text/html'
+	end
 
 
 end

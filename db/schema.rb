@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20151208163912) do
 
   create_table "ref_items", :force => true do |t|
     t.integer "item_id"
-    t.integer "refrigirator_id"
+    t.integer "refrigerator_id"
   end
 
   create_table "refrigerators", :force => true do |t|

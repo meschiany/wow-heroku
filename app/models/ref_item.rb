@@ -1,5 +1,5 @@
 class RefItem < ActiveRecord::Base
-  attr_accessible :item_id, :refrigirator_id
-  belongs_to :items 
-  belongs_to :refrigirators
+  attr_accessible :item_id, :refrigerator_id
+  belongs_to :item
+  belongs_to :refrigerator
 end
