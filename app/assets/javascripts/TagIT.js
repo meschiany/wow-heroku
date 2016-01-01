@@ -1,4 +1,28 @@
-﻿//value for tracking in tag again
+﻿//clear Array
+Array.prototype.clear = function () {
+
+    this.splice(0, this.length);
+}
+
+//Take name of product from database and put it in Input - for tag the product
+function dataProduct() {
+    var nameProduct = new Array();
+    for (i = 0; i < items.data.length; i++) {
+        nameProduct[i] = items.data[i].name;
+        console.log(nameProduct[i]);
+        
+        
+        $("#myTags").tagit({
+            availableTags: ["ביסלי","במבה"],
+            autocomplete: { delay: 0, minLength: 2 }
+        });
+
+    }
+    
+   // nameProduct.clear();
+}
+
+//value for tracking the tag
 var counter1 = 0;
 var counter2 = 0
 var counter3 = 0;
@@ -44,6 +68,8 @@ function TagObject (pageX, pageY, counter) {
     this.getFull = function () {
         return self.pageX + "" + self.pageY;
     }
+    
+
 }
 
 
@@ -63,7 +89,7 @@ $("#tags").on("click", function (event) {
     console.log(thisEvent);
     console.log(thisEvent.pageX);
     console.log(thisEvent.pageY);
-    if (counter == 0) {
+    if (counter1 == 0) {
         
         
         
@@ -75,9 +101,14 @@ $("#tags").on("click", function (event) {
             $(".tag1").css("position", "fixed");
             $(".tag1").css("left", event.pageX);
             $(".tag1").css("top", event.pageY);
-            alert("you add a knew tag here TAG-1");
             $(".tag1").css("color", "red");
             $(".tag1").css("display", "block");
+            $(".tag1").css("width", "64px");
+            dataProduct();
+           /* $("#myTags").tagit({
+                availableTags: ["c++", "java", "php", "javascript", "ruby", "python", "c"],
+                autocomplete: { delay: 0, minLength: 2 }
+            });*/
             counterClickTags++;
 		
         }
@@ -97,7 +128,7 @@ $("#tags").on("click", function (event) {
             $(".tag2").css("position", "fixed");
             $(".tag2").css("left", event.pageX);
             $(".tag2").css("top", event.pageY);
-            alert("you add a knew tag here TAG-2");
+         
             $(".tag2").css("color", "red");
             $(".tag2").css("display", "block");
             counterClickTags++;
@@ -119,7 +150,7 @@ $("#tags").on("click", function (event) {
             $(".tag3").css("position", "fixed");
             $(".tag3").css("left", event.pageX);
             $(".tag3").css("top", event.pageY);
-            alert("you add a knew tag here TAG-3");
+            
             $(".tag3").css("color", "red");
             $(".tag3").css("display", "block");
             counterClickTags++;
@@ -141,7 +172,7 @@ $("#tags").on("click", function (event) {
             $(".tag4").css("position", "fixed");
             $(".tag4").css("left", event.pageX);
             $(".tag4").css("top", event.pageY);
-            alert("you add a knew tag here TAG-4");
+         
             $(".tag4").css("color", "red");
             $(".tag4").css("display", "block");
             counterClickTags++;
@@ -163,7 +194,7 @@ $("#tags").on("click", function (event) {
             $(".tag5").css("position", "fixed");
             $(".tag5").css("left", event.pageX);
             $(".tag5").css("top", event.pageY);
-            alert("you add a knew tag here TAG-5");
+         
             $(".tag5").css("color", "red");
             $(".tag5").css("display", "block");
             counterClickTags++;
@@ -184,7 +215,7 @@ $("#tags").on("click", function (event) {
             $(".tag6").css("position", "fixed");
             $(".tag6").css("left", event.pageX);
             $(".tag6").css("top", event.pageY);
-            alert("you add a knew tag here TAG-6");
+        
             $(".tag6").css("color", "red");
             $(".tag6").css("display", "block");
             counterClickTags++;
@@ -206,7 +237,7 @@ $("#tags").on("click", function (event) {
             $(".tag7").css("position", "fixed");
             $(".tag7").css("left", event.pageX);
             $(".tag7").css("top", event.pageY);
-            alert("you add a knew tag here TAG-7");
+           
             $(".tag7").css("color", "red");
             $(".tag7").css("display", "block");
             counterClickTags++;
@@ -228,7 +259,7 @@ $("#tags").on("click", function (event) {
             $(".tag8").css("position", "fixed");
             $(".tag8").css("left", event.pageX);
             $(".tag8").css("top", event.pageY);
-            alert("you add a knew tag here TAG-7");
+          
             $(".tag8").css("color", "red");
             $(".tag8").css("display", "block");
             counterClickTags++;
@@ -250,7 +281,7 @@ $("#tags").on("click", function (event) {
             $(".tag9").css("position", "fixed");
             $(".tag9").css("left", event.pageX);
             $(".tag9").css("top", event.pageY);
-            alert("you add a knew tag here TAG-7");
+         
             $(".tag9").css("color", "red");
             $(".tag9").css("display", "block");
             counterClickTags++;
@@ -273,7 +304,7 @@ $("#tags").on("click", function (event) {
             $(".tag10").css("position", "fixed");
             $(".tag10").css("left", event.pageX);
             $(".tag10").css("top", event.pageY);
-            alert("you add a knew tag here TAG-7");
+         
             $(".tag10").css("color", "red");
             $(".tag10").css("display", "block");
             counterClickTags++;

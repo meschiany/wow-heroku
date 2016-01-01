@@ -84,3 +84,6 @@ document.getElementById("canvas").addEventListener("click", function () {
     document.getElementById("canvas").setAttribute("class", "democlass");
     
 });
+
+
+

@@ -14,6 +14,52 @@ a:link { color:purple; }
     right: 0%;
 
 }
+#StartApp
+{
+    background-image:url('/assets/arrowdown.png');
+    background-repeat:no-repeat;    
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin: 100px;
+
+}
+
+#logo
+{
+    width:50px;
+    height:50px;
+    background-color:aqua;
+
+}
+#navbar
+{
+    border:1px solid black;
+}
+#AddFridge
+{
+    background-image:url('/assets/fridge.jpg');
+    background-repeat:no-repeat;
+    width:200px;
+    height:200px;
+    margin: 5px;
+}
+#FridgeStudent
+{
+    background-image:url('/assets/fridge2.jpg');
+    background-repeat:no-repeat;
+    width:200px;
+    height:200px;
+    margin: 5px;
+}
+#FridgeSingle
+{
+    background-image:url('/assets/fridge1.jpg');
+    background-repeat:no-repeat;
+    width:200px;
+    height:200px;
+    margin: 5px;
+}
 /* Stack the two content containers */
 .main,
 .sidebar { display:block; width:100%; }

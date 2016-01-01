@@ -18,6 +18,10 @@ class MainController < ApplicationController
 		end
 	end
 
+	def index_mobile
+		@title="ריכוזיות בשוק המזון-וואו איזה אבסורט"
+	end
+
 
 	def create_ref
 		refrigerator = Refrigerator.create(name: params[:name], address: params[:address])
@@ -51,17 +55,13 @@ class MainController < ApplicationController
 	end
 
 	def create_items_json_by_ref_id
-		item_ids = RefItem.find(:all, 1)
-		item_ids.each do |i|
-			myarr.push(i.item_id)
-		end
-		items = Item.find(myarr)
+		items = RefItem.where(refrigerator_id: params[:id])
 		jsonobj = {:respons => "true"}
 		jsonobj = {:data => []}
 		items.each do |item|
 			jsonobj[:data].push({:name => item.name , :price => item.price, :company_name => item.company.name})
 		end
-		jsonobj.to_json
+		render:json => jsonobj, :status => :ok, :content_type => 'text/html'
 	end
 
 	def search_items

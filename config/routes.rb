@@ -18,6 +18,7 @@ Myapp::Application.routes.draw do
       get 'company'
       get 'create_data_for_sunburst_by_ref_id'
       get 'search_items'
+      get 'index_mobile'
     end
   end
 
