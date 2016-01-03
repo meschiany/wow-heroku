@@ -18,7 +18,7 @@ $("#AddFridge").on("click", function (event) {
 
 $(function () {
 
-    $("#boom").on("click", function (event) {
+    $("#SubmitToGraphs").on("click", function (event) {
         $.mobile.changePage("#page4", { transition: "slideup", changeHash: false });
     });
 

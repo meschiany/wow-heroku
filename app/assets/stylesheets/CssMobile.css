@@ -20,8 +20,19 @@ a:link { color:purple; }
     background-repeat:no-repeat;    
     width: 100px;
     height: 100px;
-    position: absolute;
-    margin: 100px;
+    position: relative;
+    left: 126px;
+    top: 106px;
+
+}
+#Logo_Wellcome
+{
+    background-image:url('/assets/wellcome.png');
+    background-repeat:no-repeat;    
+    width: 100%;
+    height: 200px;
+    position: relative;
+    left: 65px;
 
 }
 

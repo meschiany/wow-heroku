@@ -33,6 +33,7 @@ window.addEventListener("DOMContentLoaded", function () {
 //Definitions-photo-css
 
 $("#canvas").css("display", "none");
+$("#SubmitToGraphs").css("display", "none");
 
 
 
@@ -51,9 +52,7 @@ $("#canvas").css("display", "none");
     $('img').css("height", "100%");
     $("#myTags").css("display", "block");
     dataProduct();
-
-   
-
+    $("#SubmitToGraphs").css("display", "block");
     $("#snap").hide(); 
         
     });
@@ -69,7 +68,8 @@ document.getElementById("snapAgain").addEventListener("click", function () {
     $("#snapAgain").show();
     $("#myTags").tagit("removeAll");
     $("#myTags").css("display", "none");
-    TagObjectArr.clear();
+    $("#SubmitToGraphs").css("display", "none");
+    TagObjectArr.clear(); 
    
 
 

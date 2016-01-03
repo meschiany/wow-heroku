@@ -4,6 +4,8 @@ var TagObjectArr = new Array();
 //value for tracking number of objects
 var counterClickTags = 0
 
+//object from database by word
+var objectFromDataBase = new Array();
 
 //clear Array
 Array.prototype.clear = function () {
@@ -16,25 +18,25 @@ var clearcounterClickTags = function () {
 
 };
 
-function getItemsByWord(word){
+function getItemsByWord(word) {
     $.ajax({
         method: "GET",
         url: "/main/search_items",
-        data:{"word":word},
+        data: { "word": word },
         dataType: "json"
-    }).done(function(data){
+    }).done(function (data) {
         console.log(data);
     });
     
 }
 
-function getNamesByWord(word){
+function getNamesByWord(word) {
     $.ajax({
         method: "GET",
         url: "/main/search_items",
-        data:{"word":word},
+        data: { "word": word },
         dataType: "json"
-    }).done(function(data){
+    }).done(function (data) {
         items = data;
         names = [];
         for (i = 0; i < items.length; i++) {
@@ -53,17 +55,16 @@ function dataProduct() {
         TagObjectArr[counterClickTags] = new TagObject(items.data[i].name, items.data[i].companyName, items.data[i].price);//create the object from database
         
         $("#myTags").tagit({
-            availableTags: nameProduct,
-            autocomplete: { source: function (request, response) {
-
+            availableTags: [],
+            autocomplete: {
+                source: function (request, response) {
+                    return console.log(request.term);
+                //availableTags.push(getItemsByWord(request.term)); daniel here the req for search in database
                 }, minLength: 2
-            }, //daniel i need here data if he try to do 3 autocomplete
-            beforeTagAdded: function (event, ui) { ///when the user put two character You have to take the data from database
-                // do something special
-                //TagObjectArr[counterClickTags] = new TagObject(items.data[i].name, items.data[i].companyName, items.data[i].price);//create the object from database  /daniel ask me here 
-
-                console.log(ui.tag);
-                console.log(ui.tagLabel);
+ }, 
+            beforeTagAdded: function (event, ui) {
+                //objectFromDataBase = getNamesByWord(ui.tagLabel);
+                //TagObjectArr[counterClickTags] = new TagObject(objectFromDataBase.data[i].name, objectFromDataBase.data[i].companyName, objectFromDataBase.data[i].price);//search in database by name of tag  and create the object . 
             }
         });
 
@@ -73,25 +74,27 @@ function dataProduct() {
 }
 
 
-$("#boom").on("click", function (event) {
+$("#ok").on("click", function (event) {
     var ArrayTags = $("#myTags").tagit("assignedTags");// array of tags that client put
     //ForLoop validate tags/objects
     for (var i = 0; i < TagObjectArr.length; i++) {
         console.log(TagObjectArr[i].name);
         for (var j = 0; j < ArrayTags.length; j++) {
             if (TagObjectArr[i].name == ArrayTags[j]) {
-                console.log("yes boba");
+                ///here you pass TagObjectArr.price ,TagObjectArr.company to the next page -graphs! 
             }
         }
     }
-    //TagObjectArr can send this object back to the data base
+    //here daniel you  need to send the object to the database and save him in array.
     
     clearcounterClickTags();
+    objectFromDataBase.clear();
+
 });
 
 
 
-//build object when you Click for tag,this object need to connect with database 
+//build Object 
 
 function TagObject(name, company, price) {
     var self = this;
