@@ -1,30 +1,4 @@
-﻿var App = angular.module('App', ['ngRoute']);
-
-App.config(['$routeProvider', function ($routeProvider) {
-        
-        $routeProvider.
-		when('/myfridge', {
-            templateUrl: '../views/myfridge.html',
-            controller: 'FridgeController'
-        })
-
-
-    }]);
-
-
-App.controller('IndexController', function ($scope) {
-    
-    
-
-    console.log('indexPagecontroller');
-    $("#myTags").tagit({
-        availableTags: ["c++", "java", "php", "javascript", "ruby", "python", "c"],
-        autocomplete: { delay: 0, minLength: 2 }
-    });
-    $(".ui-loader").css("display", "none"); //t=Tag Result display none
-   
-
-});
+﻿
 //build clickTag object
 function TagObject(pageX, pageY,counter){
     this.id = counter;
@@ -71,12 +45,7 @@ var arr = new Array();
     
 });*/
 $("#snapAgain").on("click", function (event) {
-    
-    
     alert("sanp agian push");
-    
-   
-    
 });
 
 document.getElementById("canvas").addEventListener("click", function () {
@@ -84,6 +53,3 @@ document.getElementById("canvas").addEventListener("click", function () {
     document.getElementById("canvas").setAttribute("class", "democlass");
     
 });
-
-
-

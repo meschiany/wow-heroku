@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/assets/tagit.ui-zendesk.css" />
         <!--Main-css-->
         <link rel="stylesheet" href="/assets/CssMobile.css" />
+        <%= javascript_tag do %>
+            window.myData = <%=raw @items.to_json %>;
+        <% end %>
     </head>
     <body>
         <!--Page1-->
@@ -125,7 +128,6 @@
         <script type="text/javascript" src="/assets/lib/jquery-ui.min.js"></script>
         <script type="text/javascript" src="/assets/appMobile.js"></script>
         <script type="text/javascript" src="/assets/Photo.js"></script>
-        <script type="text/javascript" src="/assets/datajson.js"></script>
         <script type="text/javascript" src="/assets/Tag.js"></script>
 
     </body>

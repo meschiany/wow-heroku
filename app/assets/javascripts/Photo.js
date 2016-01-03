@@ -1,5 +1,5 @@
 ﻿// Put event listeners into place
-window.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function(){
     // Grab elements, create settings, etc.
     window.canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -28,8 +28,6 @@ window.addEventListener("DOMContentLoaded", function () {
             video.play();
         }, errBack);
     }
-}, false);
-
 //Definitions-photo-css
 
 $("#canvas").css("display", "none");
@@ -69,11 +67,14 @@ document.getElementById("snapAgain").addEventListener("click", function () {
     $("#myTags").tagit("removeAll");
     $("#myTags").css("display", "none");
     $("#SubmitToGraphs").css("display", "none");
-    TagObjectArr.clear(); 
+    TagObjectArr.clear();
    
 
 
 });
+}, false);
+
+
 
 // Converts canvas to an image
 function convertCanvasToImage(canvas) {

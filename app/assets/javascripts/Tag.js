@@ -46,30 +46,23 @@ function getNamesByWord(word) {
     });
 }
 
+
 //Take name of product from database and put it in Input - for tag the product
 function dataProduct() {
     var nameProduct = new Array();
-    for (i = 0; i < items.data.length; i++) {
-        nameProduct[i] = items.data[i].name;
-        console.log(nameProduct[i]);
-        TagObjectArr[counterClickTags] = new TagObject(items.data[i].name, items.data[i].companyName, items.data[i].price);//create the object from database
-        
+    // for (i = 0; i < items.data.length; i++) {
+        // nameProduct[i] = items.data[i].name;
+        // console.log(nameProduct[i]);
+        // TagObjectArr[counterClickTags] = new TagObject(items.data[i].name, items.data[i].companyName, items.data[i].price);//create the object from database
         $("#myTags").tagit({
-            availableTags: [],
-            autocomplete: {
-                source: function (request, response) {
-                    return console.log(getNamesByWord(request.term));
-                //availableTags.push(getItemsByWord(request.term)); daniel here the req for search in database
-                }, minLength: 2
- }, 
+            availableTags: myData,
+            autocomplete: { delay: 0, minLength: 2 },
             beforeTagAdded: function (event, ui) {
                 //objectFromDataBase = getNamesByWord(ui.tagLabel);
                 //TagObjectArr[counterClickTags] = new TagObject(objectFromDataBase.data[i].name, objectFromDataBase.data[i].companyName, objectFromDataBase.data[i].price);//search in database by name of tag  and create the object . 
             }
         });
-
-    }
-    
+    // }
    // nameProduct.clear();
 }
 
@@ -103,9 +96,8 @@ function TagObject(name, company, price) {
     this.company = company;
     this.getFull = function () {
         return self.pageX + "" + self.pageY;
-        this
+        // this
     }
-    
     counterClickTags++;
 }
 

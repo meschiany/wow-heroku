@@ -2,26 +2,7 @@
 Array.prototype.clear = function () {
 
     this.splice(0, this.length);
-}
-
-//Take name of product from database and put it in Input - for tag the product
-function dataProduct() {
-    var nameProduct = new Array();
-    for (i = 0; i < items.data.length; i++) {
-        nameProduct[i] = items.data[i].name;
-        console.log(nameProduct[i]);
-        
-        
-        $("#myTags").tagit({
-            availableTags: ["ביסלי","במבה"],
-            autocomplete: { delay: 0, minLength: 2 }
-        });
-
-    }
-    
-   // nameProduct.clear();
-}
-
+};
 //value for tracking the tag
 var counter1 = 0;
 var counter2 = 0

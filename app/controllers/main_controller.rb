@@ -20,6 +20,7 @@ class MainController < ApplicationController
 
 	def index_mobile
 		@title="ריכוזיות בשוק המזון-וואו איזה אבסורט"
+		@items =Item.all.map {|record| record.name}
 	end
 
 
