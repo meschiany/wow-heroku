@@ -58,7 +58,7 @@ function dataProduct() {
             availableTags: [],
             autocomplete: {
                 source: function (request, response) {
-                    return console.log(request.term);
+                    return console.log(getNamesByWord(request.term));
                 //availableTags.push(getItemsByWord(request.term)); daniel here the req for search in database
                 }, minLength: 2
  }, 
