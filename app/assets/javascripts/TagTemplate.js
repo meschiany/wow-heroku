@@ -1,32 +1,23 @@
 ﻿$(document).ready(function(){
-    var options = {
-        
+    var options = { 
         // Aligning the text popups
         align: {
             x: 'center', // left, center or right
             y: 'center'  // top,  center or bottom
         },
-        
-        
         // The (relative) offset of the popups in pixels
         offset: {
             left: 0, // horizontal offset
             top: 12  // vertical offset
         },
-        
-        
         // event handlers of the tags
         handlers: {
             
             // Any vanilla JavaScript event is a valid key
             click: function (e) {
-                alert('You clicked a button');
-                
                 this; // the DOM Node
                 e;    // the Event
             },
-            
-            
             // For convenience, you can use strings to
             // show, hide and toggle the popups
             mouseenter: 'show',
@@ -34,7 +25,6 @@
         }
 
     };
-
 
     var data = [
       // x and y values can be decimals (0-1)

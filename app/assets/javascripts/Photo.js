@@ -20,7 +20,7 @@ $(document).ready(function(){
         }, errBack);
     } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
         navigator.webkitGetUserMedia(videoObj, function (stream) {
-            video.src = window.webkitURL.createObjectURL(stream);
+            video.src = window.URL.createObjectURL(stream);
             video.play();
         }, errBack);
     }
@@ -68,9 +68,6 @@ $(document).ready(function(){
         TagObjectArr.clear();
     });
 
-    $("#StartApp").on("click", function (event) {
-        $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
-    });
 
     //page3
     $("#AddFridge").on("click", function (event) {
@@ -110,20 +107,4 @@ function gotPic(event) {
     context.drawImage(video, 0, 0, 640, 480);
     convertCanvasToImage();
     $("#video").fadeOut("slow");
-    // window.lastFrig = Date.now();
-    // if(event.target.files.length == 1 && 
-    //    event.target.files[0].type.indexOf("image/") == 0) {
-    //     $.ajax({
-    //     type: "POST",
-    //     url: "/main/save_img",
-    //     data: {"imgBase64": event.target.files[0],"name":lastFrig}
-    // }).done(function(o) {
-    //     var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
-    //     img.attr('src', "/assets/"+lastFrig+".png");
-    //     img.appendTo('#CamreShoot');
-    //     console.log('saved');
-    // });
-        
-    //     $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
-    // }
 }

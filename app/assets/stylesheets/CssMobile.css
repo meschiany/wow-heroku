@@ -1,8 +1,24 @@
 ﻿/* Start with core styles outside of a media query that apply to mobile and up */
 /* Global typography and design elements, stacked containers */
-body { font-family: Helvetica, san-serif; }
-H1 { color: green; }
+
+.ui-mobile-viewport{ font-family: Helvetica, san-serif !important;background-color: #001a42 !important;}
+.page1__header_elm{text-align: center;background-color: #001a42!important; border:0 !important; margin-bottom: 30px;}
+.page1__header_shares{display: inline-block;margin:30px;}
+.page1__content_elm{position: relative;top: -1px;z-index: 1;}
+.page1__content_title{background-image: url('/assets/bgil.png');width: 100vw;height:40vh;background-repeat-y: no-repeat;}
+h1 { color: #fff; font-size: 100px;text-align: center; margin:0;}
+.page1__content_text{text-shadow: 0 0 0 #000;color: #fff;font-size: 35px;text-align: center; width:80%;margin-left: auto;margin-right: auto;}
+
+html,body,#page1 { height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
+#page1 .ui-content {padding: 0;}
+ /* divs will inherit page's height */
+.ui-content,.ui-content #full-height-div {height: inherit;}
+.page1__content_arrow{width: 100px;height: 100px;margin-right: auto;margin-left: auto;}
+.page1__content_arrow img {width: 100px;}
 a:link { color:purple; }
+
+
+
 
 /*Layout for tags*/
 #tags
@@ -14,17 +30,7 @@ a:link { color:purple; }
     right: 0%;
 
 }
-#StartApp
-{
-    background-image:url('/assets/arrowdown.png');
-    background-repeat:no-repeat;    
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 126px;
-    top: 106px;
 
-}
 #Logo_Wellcome
 {
     background-image:url('/assets/wellcome.png');
@@ -89,20 +95,3 @@ a:link { color:purple; }
 /* Stack the two content containers */
 .main,
 .sidebar { display:block; width:100%; }
-
-/* First breakpoint at 576px */
-/* Inherits mobile styles, but floats containers to make columns */
-@media all and (min-width: 36em){
-	.main { float: left; width:60%; }
-	.sidebar { float: left; width:40%; }
-}
-
-/* Second breakpoint at 800px */
-/* Adjusts column proportions, tweaks base H1 */
-@media all and (min-width: 50em){
-	.main { width:70%; }
-	.sidebar { width:30%; }
-
-	/* You can also tweak any other styles in a breakpoint */
-	H1 { color: blue; font-size:1.2em }
-}
