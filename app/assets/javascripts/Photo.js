@@ -1,6 +1,7 @@
 ﻿// Put event listeners into place
 $(document).ready(function(){
-    alreadyRun = false;
+    $("#iphoneSnap").on("change",gotPic);
+
     // Grab elements, create settings, etc.
     window.canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -56,7 +57,6 @@ $(document).ready(function(){
 
     // reset - clear - to Capture New Photo
     document.getElementById("snapAgain").addEventListener("click", function () {
-        alreadyRun = false;
         $("#video").fadeIn("slow");
         $("img").remove();
         $("#canvas").fadeOut("slow");
@@ -91,9 +91,7 @@ $(document).ready(function(){
 
 // Converts canvas to an image
 function convertCanvasToImage(canvas) {
-    if (alreadyRun){
-        return;
-    }
+    
     window.lastFrig = Date.now();
     var can = document.getElementById('canvas');
     $.ajax({
@@ -101,10 +99,19 @@ function convertCanvasToImage(canvas) {
         url: "/main/save_img",
         data: {"imgBase64": can.toDataURL(),"name":lastFrig}
     }).done(function(o) {
-        alreadyRun = true;
         var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
         img.attr('src', "/assets/"+lastFrig+".png");
         img.appendTo('#CamreShoot');
         console.log('saved');
     });
+}
+
+function gotPic(event) {
+    alert(1);
+    if(event.target.files.length == 1 && 
+       event.target.files[0].type.indexOf("image/") == 0) {
+        alert(2);
+        alert(event.target.files[0]);
+        $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
+    }
 }
