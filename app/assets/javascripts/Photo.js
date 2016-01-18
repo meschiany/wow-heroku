@@ -107,11 +107,23 @@ function convertCanvasToImage(canvas) {
 }
 
 function gotPic(event) {
-    alert(1);
-    if(event.target.files.length == 1 && 
-       event.target.files[0].type.indexOf("image/") == 0) {
-        alert(2);
-        alert(event.target.files[0]);
-        $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
-    }
+    context.drawImage(video, 0, 0, 640, 480);
+    convertCanvasToImage();
+    $("#video").fadeOut("slow");
+    // window.lastFrig = Date.now();
+    // if(event.target.files.length == 1 && 
+    //    event.target.files[0].type.indexOf("image/") == 0) {
+    //     $.ajax({
+    //     type: "POST",
+    //     url: "/main/save_img",
+    //     data: {"imgBase64": event.target.files[0],"name":lastFrig}
+    // }).done(function(o) {
+    //     var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+    //     img.attr('src', "/assets/"+lastFrig+".png");
+    //     img.appendTo('#CamreShoot');
+    //     console.log('saved');
+    // });
+        
+    //     $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
+    // }
 }
