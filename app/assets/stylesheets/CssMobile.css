@@ -71,6 +71,21 @@ a:link { color:purple; }
     height:200px;
     margin: 5px;
 }
+#firdgefamliychange{
+    background-image:url('/assets/firdgefamliy.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    width:200px;
+    height:200px;
+}
+
+#Fridgefamliy{
+    background-image:url('/assets/firdgefamliy.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    width:100vw;
+    height:100vh;
+}
 /* Stack the two content containers */
 .main,
 .sidebar { display:block; width:100%; }

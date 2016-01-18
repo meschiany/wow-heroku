@@ -1,5 +1,6 @@
 ﻿// Put event listeners into place
 $(document).ready(function(){
+    alreadyRun = false;
     // Grab elements, create settings, etc.
     window.canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -8,7 +9,7 @@ $(document).ready(function(){
         errBack = function (error) {
             console.log("Video capture error: ", error.code);
     };
-
+   
 
     // Put video listeners into place
     if (navigator.getUserMedia) { // Standard
@@ -30,56 +31,80 @@ $(document).ready(function(){
     }
 //Definitions-photo-css
 
-$("#canvas").css("display", "none");
-$("#SubmitToGraphs").css("display", "none");
-
-
+    $("#canvas").css("display", "none");
+    $("#SubmitToGraphs").css("display", "none");
 
     // Get-Save Snapshot - image 
     document.getElementById("snap").addEventListener("click", function () {
-    context.drawImage(video, 0, 0, 640, 480);
-    var img = convertCanvasToImage();
-    // the fade only works on firefox?
-    $("#video").fadeOut("slow");
-    document.getElementById("CamreShoot").appendChild(img);
+
+        context.drawImage(video, 0, 0, 640, 480);
+        $("#video").fadeOut("slow");
+
+    // document.getElementById("CamreShoot").appendChild(img);
     
 
     //some settings for photo
-    $("CamreShoot").find(img).css("position", "relative");
-    $('img').css("width", "100%");
-    $('img').css("height", "100%");
-    $("#myTags").css("display", "block");
-    dataProduct();
-    $("#SubmitToGraphs").css("display", "block");
-    $("#snap").hide(); 
+        // $("CamreShoot").find(img).css("position", "relative");
+        $('img').css("width", "100%");
+        $('img').css("height", "100%");
+        $("#myTags").css("display", "block");
+        dataProduct();
+        $("#SubmitToGraphs").css("display", "block");
+        $("#snap").hide();
         
     });
 
-// reset - clear - to Capture New Photo
-document.getElementById("snapAgain").addEventListener("click", function () {
-   
- 
-    $("#video").fadeIn("slow");
-    $("img").remove();
-    $("#canvas").fadeOut("slow");
-    $("#snap").show();
-    $("#snapAgain").show();
-    $("#myTags").tagit("removeAll");
-    $("#myTags").css("display", "none");
-    $("#SubmitToGraphs").css("display", "none");
-    TagObjectArr.clear();
-   
+    // reset - clear - to Capture New Photo
+    document.getElementById("snapAgain").addEventListener("click", function () {
+        alreadyRun = false;
+        $("#video").fadeIn("slow");
+        $("img").remove();
+        $("#canvas").fadeOut("slow");
+        $("#snap").show();
+        $("#snapAgain").show();
+        $("#myTags").tagit("removeAll");
+        $("#myTags").css("display", "none");
+        $("#SubmitToGraphs").css("display", "none");
+        TagObjectArr.clear();
+    });
 
+    $("#StartApp").on("click", function (event) {
+        $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
+    });
 
-});
+    //page3
+    $("#AddFridge").on("click", function (event) {
+        $.mobile.changePage("#page3", { transition: "slideup", changeHash: false });
+    });
+
+    $("#SubmitToGraphs").on("click", function (event) {
+        $.mobile.changePage("#page4", { transition: "slideup", changeHash: false });
+    });
+
+    $("#firdgefamliychange").on("click", function (event) {
+        $.mobile.changePage("#page5", { transition: "slideup", changeHash: false });
+
+    });
+
 }, false);
-
 
 
 // Converts canvas to an image
 function convertCanvasToImage(canvas) {
+    if (alreadyRun){
+        return;
+    }
+    window.lastFrig = Date.now();
     var can = document.getElementById('canvas');
-    var image = new Image();
-    image.src = can.toDataURL();
-    return image;
+    $.ajax({
+        type: "POST",
+        url: "/main/save_img",
+        data: {"imgBase64": can.toDataURL(),"name":lastFrig}
+    }).done(function(o) {
+        alreadyRun = true;
+        var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+        img.attr('src', "/assets/"+lastFrig+".png");
+        img.appendTo('#CamreShoot');
+        console.log('saved');
+    });
 }

@@ -21,6 +21,17 @@ class MainController < ApplicationController
 	def index_mobile
 		@title="ריכוזיות בשוק המזון-וואו איזה אבסורט"
 		@items =Item.all.map {|record| record.name}
+		@family = RefItem.where(refrigerator_id: 2).map{|r| r.item}
+		@single = RefItem.where(refrigerator_id: 3).map{|r| r.item}
+		@couple = RefItem.where(refrigerator_id: 4).map{|r| r.item}
+	end
+
+	def save_img
+		data_url = params[:imgBase64]
+		name = params[:name]
+		png = Base64.decode64(data_url['data:image/png;base64,'.length .. -1])
+		File.open(Rails.root.join('app/assets/uploads/'+name+'.png'), 'wb') { |f| f.write(png) }
+		head :ok
 	end
 
 
@@ -66,8 +77,13 @@ class MainController < ApplicationController
 	end
 
 	def search_items
-		@items = Item.where("name like ?", "%#{params[:word]}%")
-		render:json => @items, :status => :ok, :content_type => 'text/html'
+		ary = Array.new 
+		params[:word].each do |item|
+			myItem = Item.where("name like ?", "%#{item}%")
+  			ary.push(myItem)
+		end
+		puts ary
+		render:json => ary, :status => :ok, :content_type => 'text/html'
 	end
 
 

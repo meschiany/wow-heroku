@@ -19,6 +19,7 @@ Myapp::Application.routes.draw do
       get 'create_data_for_sunburst_by_ref_id'
       get 'search_items'
       get 'index_mobile'
+      post 'save_img'
     end
   end
 
