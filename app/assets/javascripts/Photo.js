@@ -70,9 +70,7 @@ $(document).ready(function(){
 
 
     //page3
-    $("#AddFridge").on("click", function (event) {
-        $.mobile.changePage("#page3", { transition: "slideup", changeHash: false });
-    });
+    
 
     $("#SubmitToGraphs").on("click", function (event) {
         $.mobile.changePage("#page4", { transition: "slideup", changeHash: false });

@@ -1,20 +1,25 @@
-﻿/* Start with core styles outside of a media query that apply to mobile and up */
-/* Global typography and design elements, stacked containers */
-
+﻿
+html,body,#page1,#page2,#page3,#page4,#page5 { height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
+h1 { color: #fff; font-size: 40px;text-align: center; margin:0;}
 .ui-mobile-viewport{ font-family: Helvetica, san-serif !important;background-color: #001a42 !important;}
-.page1__header_elm{text-align: center;background-color: #001a42!important; border:0 !important; margin-bottom: 30px;}
-.page1__header_shares{display: inline-block;margin:30px;}
-.page1__content_elm{position: relative;top: -1px;z-index: 1;}
-.page1__content_title{background-image: url('/assets/bgil.png');width: 100vw;height:40vh;background-repeat-y: no-repeat;}
-h1 { color: #fff; font-size: 100px;text-align: center; margin:0;}
-.page1__content_text{text-shadow: 0 0 0 #000;color: #fff;font-size: 35px;text-align: center; width:80%;margin-left: auto;margin-right: auto;}
-
-html,body,#page1 { height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
-#page1 .ui-content {padding: 0;}
- /* divs will inherit page's height */
 .ui-content,.ui-content #full-height-div {height: inherit;}
-.page1__content_arrow{width: 100px;height: 100px;margin-right: auto;margin-left: auto;}
-.page1__content_arrow img {width: 100px;}
+
+.page1__header_elm{text-align: center; background-color: #001a42!important; border:0 !important; margin-bottom: 5%;}
+.page1__header_shares{display: inline-block;margin:5%;}
+.page1__header_shares img {width:50%;}
+.page1__content_elm{position: relative;top: -1px;z-index: 1;}
+.page1__content_title{width: 100%;}
+.page1__content_title img {width: 100%;}
+.page1__content_text{text-shadow: 0 0 0 #000;color: #fff;font-size: 1em; text-align: center; width:90%;margin-left: auto;margin-right: auto;}
+.page1__content_arrow{margin-right: auto;margin-left: auto;text-align: center;}
+.page1__content_arrow img {width: 15%;}
+
+.page2__header_elm{background-image: url('/assets/titlebg.png');height: 100px;}
+.page2__content_ref{width: 49%;height: 200px;display: inline-block;margin:0; }
+.page2__content_ref img{width:100%;height: 100%}
+.page2__content_ref .overlay {background: rgba(255, 255, 255, 0.85);position: relative;bottom: 60px;height: 10%;text-align: right;padding: 10%;}
+.page2__footer_elm {background-color: #ff0033!important;text-align: center;}
+
 a:link { color:purple; }
 
 
@@ -52,45 +57,6 @@ a:link { color:purple; }
 #navbar
 {
     border:1px solid black;
-}
-#AddFridge
-{
-    background-image:url('/assets/fridge.jpg');
-    background-repeat:no-repeat;
-    width:200px;
-    height:200px;
-    margin: 5px;
-}
-#FridgeStudent
-{
-    background-image:url('/assets/fridge2.jpg');
-    background-repeat:no-repeat;
-    width:200px;
-    height:200px;
-    margin: 5px;
-}
-#FridgeSingle
-{
-    background-image:url('/assets/fridge1.jpg');
-    background-repeat:no-repeat;
-    width:200px;
-    height:200px;
-    margin: 5px;
-}
-#firdgefamliychange{
-    background-image:url('/assets/firdgefamliy.png');
-    background-repeat:no-repeat;
-    background-size: cover;
-    width:200px;
-    height:200px;
-}
-
-#Fridgefamliy{
-    background-image:url('/assets/firdgefamliy.png');
-    background-repeat:no-repeat;
-    background-size: cover;
-    width:100vw;
-    height:100vh;
 }
 /* Stack the two content containers */
 .main,
