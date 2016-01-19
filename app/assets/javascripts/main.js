@@ -8,7 +8,7 @@ $(document).ready(function(){
     });
 
     $("#firdgeFamliy").on("click", function (event) {
+		loadfamily();
         $.mobile.changePage("#page5", { transition: "slideup", changeHash: false });
-
     });
 });

@@ -76,10 +76,7 @@ $(document).ready(function(){
         $.mobile.changePage("#page4", { transition: "slideup", changeHash: false });
     });
 
-    $("#firdgefamliychange").on("click", function (event) {
-        $.mobile.changePage("#page5", { transition: "slideup", changeHash: false });
-
-    });
+    
 
 }, false);
 

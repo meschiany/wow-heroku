@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+﻿function loadfamily(){
     var options = { 
         // Aligning the text popups
         align: {
@@ -75,7 +75,5 @@
 
         }
     ];
-
-    $('#Fridgefamliy').taggd(options, data);
-
-});
+    $('#fridgeFamliy').taggd(options, data);
+}
