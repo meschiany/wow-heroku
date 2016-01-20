@@ -1,18 +1,15 @@
 ﻿// Put event listeners into place
-$(document).ready(function(){
-    $("#iphoneSnap").on("change",gotPic);
-
-    // Grab elements, create settings, etc.
+function startCamera(){
+    
+    // Put video listeners for Android
     window.canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
         video = document.getElementById("video"),
         videoObj = { "video": true },
         errBack = function (error) {
             console.log("Video capture error: ", error.code);
-    };
+        };
    
-
-    // Put video listeners into place
     if (navigator.getUserMedia) { // Standard
         navigator.getUserMedia(videoObj, function (stream) {
             video.src = stream;
@@ -36,16 +33,8 @@ $(document).ready(function(){
     $("#SubmitToGraphs").css("display", "none");
 
     // Get-Save Snapshot - image 
-    document.getElementById("snap").addEventListener("click", function () {
-
-        context.drawImage(video, 0, 0, 640, 480);
-        $("#video").fadeOut("slow");
-
-    // document.getElementById("CamreShoot").appendChild(img);
-    
-
-    //some settings for photo
-        // $("CamreShoot").find(img).css("position", "relative");
+    $("#snap").click(function () {
+        gotPic();
         $('img').css("width", "100%");
         $('img').css("height", "100%");
         $("#myTags").css("display", "block");
@@ -56,32 +45,20 @@ $(document).ready(function(){
     });
 
     // reset - clear - to Capture New Photo
-    document.getElementById("snapAgain").addEventListener("click", function () {
+    $("#snapAgain").click(function () {
         $("#video").fadeIn("slow");
         $("img").remove();
         $("#canvas").fadeOut("slow");
         $("#snap").show();
         $("#snapAgain").show();
-        $("#myTags").tagit("removeAll");
         $("#myTags").css("display", "none");
         $("#SubmitToGraphs").css("display", "none");
         TagObjectArr.clear();
     });
+}
 
-
-    //page3
-    
-
-    $("#SubmitToGraphs").on("click", function (event) {
-        $.mobile.changePage("#page4", { transition: "slideup", changeHash: false });
-    });
-
-    
-
-}, false);
-
-
-// Converts canvas to an image
+// Converts canvas to an image 
+// callback from drawImage
 function convertCanvasToImage(canvas) {
     
     window.lastFrig = Date.now();
@@ -100,6 +77,6 @@ function convertCanvasToImage(canvas) {
 
 function gotPic(event) {
     context.drawImage(video, 0, 0, 640, 480);
-    convertCanvasToImage();
+    // convertCanvasToImage();
     $("#video").fadeOut("slow");
 }

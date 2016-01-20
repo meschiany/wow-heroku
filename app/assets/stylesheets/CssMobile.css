@@ -1,5 +1,5 @@
 ﻿
-html,body,#page1,#page2,#page3,#page4,#page5 { height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
+html,body,#page1,#page2,#page3,#page4,#myFridge,#couple,#student,#family{ height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
 h1 { color: #fff; font-size: 40px;text-align: center; margin:0;}
 .ui-mobile-viewport{ font-family: Helvetica, san-serif !important;background-color: #001a42 !important;}
 .ui-content,.ui-content #full-height-div {height: inherit;}

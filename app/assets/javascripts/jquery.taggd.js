@@ -127,11 +127,10 @@
 	Taggd.prototype.alterDOM = function() {
 		var _this = this;
 		
-		
 		this.wrapper.find('.taggd-item-hover').each(function() {
 			var $e = $(this),
 				
-				$input = $('<input type="text" size="16" list="items"/>')
+				$input = $('<input type="text" size="16" />')
 					.val($e.text()),
 				$button_ok = $('<button />')
 					.html(_this.options.strings.save),
@@ -168,7 +167,6 @@
 			});
 			
 			$e.empty().append($input, $button_ok, $button_delete);
-			
 		});
 		
 		_this.updateDOM();

@@ -1,79 +1,70 @@
-﻿function loadfamily(){
-    var options = { 
-        // Aligning the text popups
-        align: {
-            x: 'center', // left, center or right
-            y: 'center'  // top,  center or bottom
-        },
-        // The (relative) offset of the popups in pixels
-        offset: {
-            left: 0, // horizontal offset
-            top: 12  // vertical offset
-        },
-        // event handlers of the tags
+﻿function createTags(fridgeType,destPage){
+    var options = {
+        align: {x: 'center', y: 'center'},
+        offset: {left: 0,top: 12},
         handlers: {
-            
-            // Any vanilla JavaScript event is a valid key
             click: function (e) {
                 this; // the DOM Node
                 e;    // the Event
             },
-            // For convenience, you can use strings to
-            // show, hide and toggle the popups
             mouseenter: 'show',
             mouseleave: 'hide'
         }
-
     };
-
-    var data = [
-      // x and y values can be decimals (0-1)
-        {
-            x: 0.4938313449023861,
-            y: 0.2872712742504409,
-            
-            // (Optional) Set the text of the popup.
-            // If omitted, no popup window will appear.
-            text: 'לחם-קל',
-            
-            // (Optional) Set the element’s attributes.
-            attributes: {
-                id: 'my-id',
-                class: 'my-class'
+    var pos;
+    switch (fridgeType){
+        case "family":
+            pos = [
+                {x:0.5,y:0.1},
+                {x:0.5,y:0.4},
+                {x:0.5,y:0.8},
+                {x:0.6,y:0.1},
+                {x:0.6,y:0.4},
+                {x:0.6,y:0.8},
+                {x:0.7,y:0.1},
+                {x:0.7,y:0.4},
+                {x:0.7,y:0.8},
+            ];
+        break;
+        case "couple":
+            pos = [
+                {x:0.2,y:0.1},
+                {x:0.2,y:0.4},
+                {x:0.2,y:0.8},
+                {x:0.1,y:0.1},
+                {x:0.1,y:0.4},
+                {x:0.1,y:0.8},
+                {x:0.3,y:0.1},
+                {x:0.3,y:0.4},
+                {x:0.3,y:0.8},
+            ];
+        break;
+        case "student":
+            pos = [
+                {x:0.4,y:0.1},
+                {x:0.4,y:0.4},
+                {x:0.4,y:0.8},
+                {x:0.1,y:0.1},
+                {x:0.1,y:0.4},
+                {x:0.1,y:0.8},
+                {x:0.7,y:0.1},
+                {x:0.7,y:0.4},
+                {x:0.7,y:0.8},
+            ];
+        break;
+    }
+    var data = [];
+    for (var i = 0; i < wow[fridgeType].length; i++) {
+        obj = {
+            x:pos[i].x,
+            y:pos[i].y,
+            text: wow[fridgeType][i].name,
+            attributes:{
+                price: wow[fridgeType][i].price,
+                companyName: wow[fridgeType][i].name
             }
-        }, {
-
-            x: 0.4482781995661605,
-            y: 0.6038497574955908,
-            
-            // (Optional) Set the text of the popup.
-            // If omitted, no popup window will appear.
-            text: 'חסה עמק יזרעאל',
-            
-            // (Optional) Set the element’s attributes.
-            attributes: {
-                id: 'my-id',
-                class: 'my-class'
-            }
-
-
-
-        }, {
-
-            x: 0.46454718004338397,
-            y: 0.5218391754850088,
-            
-            // (Optional) Set the text of the popup.
-            // If omitted, no popup window will appear.
-            text: 'ביצים ממזרע -חבילה*12',
-            
-            // (Optional) Set the element’s attributes.
-            attributes: {
-                id: 'my-id',
-                class: 'my-class'
-            }
-
-        }
-    ];
-    $('#fridgeFamliy').taggd(options, data);
+        };
+        data.push(obj);
+    }
+    $("#"+destPage).taggd(options, data);
 }

@@ -1,12 +1,5 @@
 class MainController < ApplicationController
   require 'json'
-	# def index
-	# 	render :text => "Chill out", :status => :ok, :content_type => 'text/html'
-	# end
-
-	# def show
-	# 	render :text => "Chill out #{params[:id]} :)", :status => :ok, :content_type => 'text/html'		
-	# end
 
 	def company
 		if(params.has_key?(:name))
@@ -19,8 +12,8 @@ class MainController < ApplicationController
 	end
 
 	def index_mobile
-		@title="ריכוזיות בשוק המזון-וואו איזה אבסורט"
 		@items =Item.all.map {|record| record.name}
+		@companies = Company.all
 		@family = RefItem.where(refrigerator_id: 2).map{|r| r.item}
 		@single = RefItem.where(refrigerator_id: 3).map{|r| r.item}
 		@couple = RefItem.where(refrigerator_id: 4).map{|r| r.item}
