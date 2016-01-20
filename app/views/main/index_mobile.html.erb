@@ -4,19 +4,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1" />
         <title></title>
-        <!--jquery-css-mobile-->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
         <%= javascript_tag do %>
             window.wow = new Object;
             wow.items = <%=raw @items.to_json %>;
@@ -29,11 +16,7 @@
             wow.datalist = $( "<datalist id='items'></datalist");
             for (var i = 0; i < wow.items.length; i++) {
                 $(wow.datalist).append("<option value='"+wow.items[i]+"'>");
-            };
-
-
-    
-            
+            };            
         <% end %>
 <script type="text/javascript">
 
