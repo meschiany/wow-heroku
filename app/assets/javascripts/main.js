@@ -1,3 +1,52 @@
+
+function getItemsData() {
+    $.ajax({
+        method: "GET",
+        url: "/main/search_items",
+        data: { "word": wow.myTags },
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
+        taggedItems = data;
+        for (i = 0; i < taggedItems.length; i++) {
+            names.push(taggedItems[i][0].price);
+        }
+        console.log(names);
+    });
+}
+function setTags(){
+    var options = {
+        edit: true,
+        align: {y: 'top'},
+        offset: {top: 10},
+        handlers: {click: 'toggle'}
+    };
+    var data = [];
+    wow.taggd = $('.taggd').taggd( options, data );
+
+    wow.taggd.on('change', function() {
+        resetMyTags();
+    });
+}
+
+function resetMyTags(){
+    wow.myTags = [];
+    for (var i = 0; i < wow.taggd.data.length; i++) {
+        if (wow.taggd.data[i].text!==""){
+            wow.myTags.push(wow.taggd.data[i].text);
+        }
+    }
+    if (wow.myTags.length){
+        console.log(wow.myTags);
+    }
+}
+
+function changeFridge(page,destPage){
+    $.mobile.changePage("#"+page, { transition: "slideup", changeHash: false });
+    $(page).ready(function(){
+        setTimeout(function(){ createTags(page,destPage); }, 250);
+    });
+}
 $(document).ready(function(){
     $("#startApp").click(function (event) {
         $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
@@ -39,53 +88,5 @@ $(document).ready(function(){
 });
 
 
-function getItemsData() {
-    $.ajax({
-        method: "GET",
-        url: "/main/search_items",
-        data: { "word": wow.myTags },
-        dataType: "json"
-    }).done(function (data) {
-        console.log(data);
-        taggedItems = data;
-        for (i = 0; i < taggedItems.length; i++) {
-            names.push(taggedItems[i][0].price);
-        }
-        console.log(names);
-    });
-}
 
-function resetMyTags(){
-    wow.myTags = [];
-    for (var i = 0; i < taggd.data.length; i++) {
-        if (taggd.data[i].text!==""){
-            wow.myTags.push(taggd.data[i].text);
-        }
-    }
-    if (wow.myTags.length){
-        console.log(wow.myTags);
-    }
-}
-
-function setTags(){
-    var options = {
-        edit: true,
-        align: {y: 'top'},
-        offset: {top: 10},
-        handlers: {click: 'toggle'}
-    };
-    var data = [];
-    var taggd = $('.taggd').taggd( options, data );
-
-    taggd.on('change', function() {
-        resetMyTags();
-    });
-}
-
-function changeFridge(page,destPage){
-    $.mobile.changePage("#"+page, { transition: "slideup", changeHash: false });
-    $(page).ready(function(){
-        setTimeout(function(){ createTags(page,destPage); }, 250);
-    });
-}
 

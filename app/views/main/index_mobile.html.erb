@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1" />
         <title></title>
+
         <%= javascript_tag do %>
             window.wow = new Object;
             wow.items = <%=raw @items.to_json %>;

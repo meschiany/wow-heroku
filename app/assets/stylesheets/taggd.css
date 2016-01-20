@@ -14,17 +14,6 @@
  * 0. You just DO WHAT THE FUCK YOU WANT TO.
 */
 
-@font-face {
-  font-family: 'taggd';
-  src: url('../fonts/taggd.eot');
-  src: url('../fonts/taggd.eot#iefix') format('embedded-opentype'),
-       url('../fonts/taggd.woff') format('woff'),
-       url('../fonts/taggd.ttf') format('truetype'),
-       url('../fonts/taggd.svg#taggd') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .taggd-wrapper {
 	overflow: hidden;
 	position: relative;

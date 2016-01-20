@@ -13,14 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-1.11.3.min
-//= require jquery.mobile-1.4.5.min
-//= require jquery.taggd
 //= require taggd
-//= require excanvas
-//= require html5-canvas-bar-graph
-//= require graphCreate
-//= require main
-//= require photo
-//= require TagTemplate
 //= require_tree .
 

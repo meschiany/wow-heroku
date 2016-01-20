@@ -10,9 +10,4 @@
  *
  *= require_self
  *= require_tree .
- *= require cssMobile
- *= require index
- *= require jquery.mobile-1.4.5.min
- *= require normalize
- *= require taggd
  */
