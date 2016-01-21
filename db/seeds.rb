@@ -1540,3 +1540,21 @@ items = Item.create([
 	{name: 'פרילי טבע גרנולה 200 גרם' ,company_id: 18, price: '4.9'},
 	{name: 'יוגורט תנובה 4.5% 200מ"ל' ,company_id: 18, price: '2.8'}
 ])
+
+refrigerator = Refrigerator.create([
+	{name:"family",address: "shenkar1"},
+	{name:"single",address: "shenkar2"},
+	{name:"couple",address: "shenkar3"}
+])
+
+refs = RefItem.create([
+	{item_id: 1255, refrigerator_id:1},
+	{item_id: 1329, refrigerator_id:1},
+	{item_id: 409, refrigerator_id:1},
+	{item_id: 1383, refrigerator_id:1},
+	{item_id: 855, refrigerator_id:1},
+	{item_id: 361, refrigerator_id:1},
+	{item_id: 105, refrigerator_id:1},
+	{item_id: 1234, refrigerator_id:1},
+	{item_id: 641, refrigerator_id:1}
+])

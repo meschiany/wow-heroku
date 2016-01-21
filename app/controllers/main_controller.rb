@@ -14,9 +14,9 @@ class MainController < ApplicationController
 	def index
 		@items =Item.all.map {|record| record.name}
 		@companies = Company.all
-		@family = RefItem.where(refrigerator_id: 2).map{|r| r.item}
-		@single = RefItem.where(refrigerator_id: 3).map{|r| r.item}
-		@couple = RefItem.where(refrigerator_id: 4).map{|r| r.item}
+		@family = RefItem.where(refrigerator_id: 1).map{|r| r.item}
+		@single = RefItem.where(refrigerator_id: 2).map{|r| r.item}
+		@couple = RefItem.where(refrigerator_id: 3).map{|r| r.item}
 	end
 
 	def save_img
