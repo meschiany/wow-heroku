@@ -105,15 +105,15 @@ $(document).ready(function(){
     });
 
     $(".whatsapp").on("click", function(){
-        window.location="whatsapp://send?text=Where is our money? - http://wow-food.herokuapp.com/main/index_mobile"
+        window.location="whatsapp://send?text=Where is our money? - http://wow-food.herokuapp.com"
     });
 
     $(".fbShare").on("click", function(){
-        fbs_click('http://www.facebook.com/sharer.php?u=','http://wow-food.herokuapp.com/main/index_mobile');
+        fbs_click('http://www.facebook.com/sharer.php?u=','http://wow-food.herokuapp.com');
     });
 
     $(".email").on("click", function(){
-        window.location.href = "mailto:info@shenkar.ac.il?Subject=Where is my money?&Body=http://wow-food.herokuapp.com/main/index_mobile";
+        window.location.href = "mailto:info@shenkar.ac.il?Subject=Where is my money?&Body=http://wow-food.herokuapp.com";
     });
     // -----------------------------------
     //listen to iphone
