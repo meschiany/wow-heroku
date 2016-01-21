@@ -16,7 +16,7 @@ Myapp::Application.routes.draw do
     collection do
       get 'company'
       get 'search_items'
-      get 'index_mobile'
+      get 'index'
       post 'save_img'
     end
   end
