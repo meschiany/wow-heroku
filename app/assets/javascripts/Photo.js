@@ -53,7 +53,6 @@ function startCamera(){
         $("#snapAgain").show();
         $("#myTags").css("display", "none");
         $("#SubmitToGraphs").css("display", "none");
-        TagObjectArr.clear();
     });
 }
 

@@ -1,66 +1,29 @@
 ﻿
-html,body,#page1,#page2,#page3,#page4,#myFridge,#couple,#student,#family{ height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
-h1 { color: #fff; font-size: 40px;text-align: center; margin:0;}
+html,body,#main,#menu,#page3,#graph,#myFridge,#couple,#student,#family{border: 0 solid!important;height: 100%;margin: 0;padding: 0;background-color: #001a42 !important;}
+h1 { color: #fff; text-align: center !important; margin:0!important;font-size: 1.5em!important;width: 100%;}
 .ui-mobile-viewport{ font-family: Helvetica, san-serif !important;background-color: #001a42 !important;}
 .ui-content,.ui-content #full-height-div {height: inherit;}
 
-.page1__header_elm{text-align: center; background-color: #001a42!important; border:0 !important; margin-bottom: 5%;}
-.page1__header_shares{display: inline-block;margin:5%;}
-.page1__header_shares img {width:50%;}
-.page1__content_elm{position: relative;top: -1px;z-index: 1;}
-.page1__content_title{width: 100%;}
-.page1__content_title img {width: 100%;}
-.page1__content_text{text-shadow: 0 0 0 #000;color: #fff;font-size: 1em; text-align: center; width:90%;margin-left: auto;margin-right: auto;}
-.page1__content_arrow{margin-right: auto;margin-left: auto;text-align: center;}
-.page1__content_arrow img {width: 15%;}
+.main__header_elm{border: 0 solid!important;text-align: center; background-color: #001a42!important; border:0 !important; margin-bottom: 5%;}
+.main__header_shares{display: inline-block;margin:5%;}
+.main__header_shares img {width:50%;}
+.main__content_elm{position: relative;top: -1px;z-index: 1;}
+.main__content_title{width: 100%;}
+.main__content_title img {width: 100%;}
+.main__content_text{text-shadow: 0 0 0 #000;color: #fff;font-size: 1em; text-align: center; width:90%;margin-left: auto;margin-right: auto;}
+.main__content_arrow{margin-right: auto;margin-left: auto;text-align: center;}
+.main__content_arrow img {width: 15%;}
 
-.page__header_stdelm{background-image: url('/assets/titlebg.png');height: 100px;}
-.page2__content_ref{width: 49%;height: 200px;display: inline-block;margin:0; }
-.page2__content_ref img{width:100%;height: 100%}
-.page2__content_ref .overlay {background: rgba(255, 255, 255, 0.85);position: relative;bottom: 60px;height: 10%;text-align: right;padding: 10%;}
-.page2__footer_elm {background-color: #ff0033!important;text-align: center;}
+.page__header_stdelm{border: 0 solid!important;background-image: url('/assets/titlebg.png');height: 100px;}
+.menu__content_ref{width: 49%;height: 200px;display: inline-block;margin:0; }
+.menu__content_ref img{width:100%;height: 100%}
+.menu__content_ref .overlay {background: rgba(255, 255, 255, 0.85);position: relative;bottom: 60px;height: 10%;text-align: right;padding: 10%;}
+.menu__footer_elm {background-color: #ff0033!important;text-align: center;border: 0 solid!important;}
 
 .page5__content_bg{width:100%;}
 .page5__content_bg img {width:100%;height: auto}
+.page__footer_elm{background-color: #ff0033!important;text-align: center;border: 0 solid!important;}
 
-a:link { color:purple; }
-
-
-
-
-/*Layout for tags*/
-#tags
-{
-    position: absolute;
-    width: 100%;
-    height: 62%;
-    top: 67px;
-    right: 0%;
-
-}
-
-#Logo_Wellcome
-{
-    background-image:url('/assets/wellcome.png');
-    background-repeat:no-repeat;    
-    width: 100%;
-    height: 200px;
-    position: relative;
-    left: 65px;
-
-}
-
-#logo
-{
-    width:50px;
-    height:50px;
-    background-color:aqua;
-
-}
-#navbar
-{
-    border:1px solid black;
-}
-/* Stack the two content containers */
-.main,
-.sidebar { display:block; width:100%; }
+#resGraph{float: right;width: 90%;}
+#resGraph canvas{width: 100%;}
+.submitToGraphs{padding: 20px;text-shadow: 0 0 0 #fff;color: #fff;}

@@ -14,9 +14,7 @@ Myapp::Application.routes.draw do
   #   resources :products
   resources :main do
     collection do
-      get 'show'
       get 'company'
-      get 'create_data_for_sunburst_by_ref_id'
       get 'search_items'
       get 'index_mobile'
       post 'save_img'
@@ -58,7 +56,7 @@ Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'main#index'
 
   # See how all your routes lay out with "rake routes"
 

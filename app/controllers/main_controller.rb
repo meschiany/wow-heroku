@@ -11,7 +11,7 @@ class MainController < ApplicationController
 		end
 	end
 
-	def index_mobile
+	def index
 		@items =Item.all.map {|record| record.name}
 		@companies = Company.all
 		@family = RefItem.where(refrigerator_id: 2).map{|r| r.item}
@@ -79,6 +79,5 @@ class MainController < ApplicationController
 		puts ary
 		render:json => ary, :status => :ok, :content_type => 'text/html'
 	end
-
 
 end
